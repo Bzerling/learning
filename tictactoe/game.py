@@ -31,8 +31,3 @@ def analyze(): # analyze the game state
         print('Game not finished')
     else:
         print('Draw')
-
-
-def move():
-    print("Enter the coordinates: ")
-    coords = input()
