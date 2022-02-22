@@ -16,10 +16,10 @@ def analyze(): # analyze the game state
     vert_win = [[cells[0], cells[3], cells[6]], [cells[1], cells[4], cells[7]], [cells[2], cells[5], cells[8]]]
     hor_win = [[cells[0], cells[1], cells[2]], [cells[3], cells[4], cells[5]], [cells[6], cells[7], cells[8]]]  
     diag_win = [[cells[0], cells[4], cells[8]], [cells[2], cells[4], cells[6]]]                     
-    if cells.count('X') - cells.count("O") > 1: # Detecting impossible state when X is 2 or more
+    if cells.count('X') - cells.count("O") > 1: # Detecting impossible state when X are 2 or more
         print('Impossible')
         return
-    elif cells.count('O') - cells.count("X") > 1: # Detecting impossible state when O is 2 or more
+    elif cells.count('O') - cells.count("X") > 1: # Detecting impossible state when O are 2 or more
         print('Impossible')
         return
     if win_X in vert_win or win_X in hor_win or win_X in diag_win: # X won
