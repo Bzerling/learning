@@ -35,6 +35,23 @@ def analyze(): # analyze the game state
         print('Draw')
 
 
-
 draw_grid(cell=cells)
-analyze()
+
+
+check_grid = ((1, 1), (1, 2), (1, 3), (2, 1), (2, 2), (2, 3), (3, 1), (3, 2), (3, 3))
+move_x = input("Enter the coordinates: ")
+while move_x.replace(" ", "", len(move_x)).isnumeric() is False:
+    print("You should enter numbers!")
+    move_x = input("Enter the coordinates: ")
+xy = tuple([int(i) for i in move_x.split(' ')])
+while xy[0] not in range(1,4) or xy[1] not in range(1,4):
+    print("Coordinates should be from 1 to 3!")
+    move_x = input("Enter the coordinates: ")
+    xy = tuple([int(i) for i in move_x.split(' ')])
+while cell_list[check_grid.index(xy)] != '_':
+    print("This cell is occupied! Choose another one!")
+    move_x = input("Enter the coordinates: ")
+    xy = tuple([int(i) for i in move_x.split(' ')])
+if cell_list[check_grid.index(xy)] == '_':
+   cell_list[check_grid.index(xy)] = 'X'
+   draw_grid(cell="".join(cell_list))
