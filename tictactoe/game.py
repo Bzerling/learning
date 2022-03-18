@@ -18,11 +18,11 @@ def analyze():
     """
     Analyzing game state for win and draw
     """
-    win_X = ["X", "X", "X"]
-    win_O = ["O", "O", "O"]
-    vert_win = [[cell_list[0], cell_list[3], cell_list[6]], [cell_list[1], cell_list[4], cell_list[7]], [cell_list[2], cell_list[5], cell_list[8]]]
-    hor_win = [[cell_list[0], cell_list[1], cell_list[2]], [cell_list[3], cell_list[4], cell_list[5]], [cell_list[6], cell_list[7], cell_list[8]]]  
-    diag_win = [[cell_list[0], cell_list[4], cell_list[8]], [cell_list[2], cell_list[4], cell_list[6]]]                     
+    win_X = ("X", "X", "X")
+    win_O = ("O", "O", "O")
+    vert_win = ((cell_list[0], cell_list[3], cell_list[6]), (cell_list[1], cell_list[4], cell_list[7]), (cell_list[2], cell_list[5], cell_list[8]))
+    hor_win = ((cell_list[0], cell_list[1], cell_list[2]), (cell_list[3], cell_list[4], cell_list[5]), (cell_list[6], cell_list[7], cell_list[8]))  
+    diag_win = ((cell_list[0], cell_list[4], cell_list[8]), (cell_list[2], cell_list[4], cell_list[6]))                     
     if win_X in vert_win or win_X in hor_win or win_X in diag_win:
         return "X wins"
     elif win_O in vert_win or win_O in hor_win or win_O in diag_win:
@@ -85,6 +85,9 @@ def game_():
             moves_check()
             moveo()
             analyze()
+            if analyze() != None:
+                print(analyze())
+                break
         
         
 game_()
